@@ -30,14 +30,22 @@
       z-index: 100;
     }
     .sypher-title {
-      font-size: 24px;
+      font-size: 30px;
       font-weight: bold;
       color: #fff;
       text-align: center;
+      flex: 1;
     }
     .menu-icon {
       cursor: pointer;
-      font-size: 28px;
+      font-size: 24px;
+      color: #fff;
+    }
+    .menu-icon div {
+      width: 30px;
+      height: 3px;
+      background-color: #fff;
+      margin: 6px auto;
     }
     .sidebar {
       position: fixed;
@@ -57,6 +65,7 @@
       font-size: 20px;
       cursor: pointer;
       text-align: right;
+      color: #fff;
     }
     .sidebar a {
       display: block;
@@ -108,10 +117,14 @@
       flex-direction: column;
       gap: 10px;
       margin-top: 80px;
+      position: absolute;
+      top: 80px;
+      left: 20px;
+      width: 70%;
     }
     .quote {
-      max-width: 70%;
-      margin: 10px auto;
+      max-width: 100%;
+      margin: 5px 0;
       padding: 10px;
       background-color: #333;
       border-radius: 20px;
@@ -147,9 +160,9 @@
 <body>
   <header>
     <div class="menu-icon" onclick="toggleSidebar()">
-      <div class="hamburger"></div>
-      <div class="hamburger"></div>
-      <div class="hamburger"></div>
+      <div></div>
+      <div></div>
+      <div></div>
     </div>
     <div class="sypher-title">Sypher</div>
   </header>
