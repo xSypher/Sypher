@@ -105,38 +105,45 @@
     <button onclick="sendMessage()">Send</button>
     <div id="chatResponse" style="margin-top:10px;"></div>
   </div>  <script>
-    function toggleSidebar() {
-      document.getElementById('sidebar').classList.toggle('active');
-    }
+  function toggleSidebar() {
+    document.getElementById('sidebar').classList.toggle('active');
+  }
 
-    function toggleChat() {
-      const box = document.getElementById('chatBox');
-      box.style.display = box.style.display === 'block' ? 'none' : 'block';
-    }
+  function toggleChat() {
+    const box = document.getElementById('chatBox');
+    box.style.display = box.style.display === 'block' ? 'none' : 'block';
+  }
 
-    async function sendMessage() {
-      const input = document.getElementById("userInput").value;
-      const responseBox = document.getElementById("chatResponse");
-      responseBox.innerText = "Thinking...";
+  async function sendMessage() {
+    const input = document.getElementById("userInput").value;
+    const responseBox = document.getElementById("chatResponse");
+    responseBox.innerText = "Thinking...";
 
-      try {
-        const response = await fetch("https://api.openai.com/v1/chat/completions", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "Authorization": "Bearer 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"
-          },
-          body: JSON.stringify({
-            model: "gpt-3.5-turbo",
-            messages: [{ role: "user", content: input }]
-          })
-        });
+    try {
+      const response = await fetch("https://api.openai.com/v1/chat/completions", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": "Bearer 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"
+        },
+        body: JSON.stringify({
+          model: "gpt-3.5-turbo",
+          messages: [{ role: "user", content: input }]
+        })
+      });
 
-        const data = await response.json();
+      const data = await response.json();
+
+      if (data.choices && data.choices.length > 0) {
         responseBox.innerText = data.choices[0].message.content;
-      } catch (error) {
-        responseBox.innerText = "Error: " + error.message;
+      } else if (data.error) {
+        responseBox.innerText = "API Error: " + data.error.message;
+      } else {
+        responseBox.innerText = "Unexpected response format.";
       }
+    } catch (error) {
+      responseBox.innerText = "Network error: " + error.message;
     }
+  }
   </script></body>
 </html>
