@@ -10,7 +10,7 @@
       box-sizing: border-box;
     }
     body {
-      background-color: #000;
+      background-color: #121212;
       color: #fff;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       height: 100vh;
@@ -21,10 +21,20 @@
       display: flex;
       align-items: center;
       padding: 0 20px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      background-color: #000;
+      z-index: 100;
     }
     .menu-icon {
       cursor: pointer;
       font-size: 28px;
+    }
+    .sypher-title {
+      font-size: 24px;
+      font-weight: bold;
+      margin-left: 20px;
     }
     .sidebar {
       position: fixed;
@@ -88,21 +98,33 @@
     .main-content {
       padding: 100px 20px;
       text-align: center;
+      margin-top: 60px;
+    }
+    .quote-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 100px;
+      flex-wrap: wrap;
     }
     .quote {
       font-size: 20px;
-      margin: 40px 0;
-      opacity: 0;
-      transition: opacity 1s;
+      max-width: 45%;
+      background-color: #333;
+      padding: 20px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s;
     }
-    .quote.active {
-      opacity: 1;
+    .quote:hover {
+      background-color: #444;
+      transform: scale(1.05);
     }
   </style>
 </head>
 <body>
   <header>
     <div class="menu-icon" onclick="toggleSidebar()">&#9776;</div>
+    <div class="sypher-title">Sypher</div>
   </header>  <div class="sidebar" id="sidebar">
     <div class="close-sidebar" onclick="toggleSidebar()">&larr;</div>
     <a href="#" onclick="showMsg('home')">Home</a>
@@ -113,16 +135,21 @@
     <a href="#" onclick="showMsg('other')">Other AI Services</a>
     <a href="#" onclick="showAbout()">About Me</a>
   </div>  <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>  <div class="main-content">
-    <div class="quote active" id="quote1">"Success is not final, failure is not fatal: It is the courage to continue that counts."</div>
-    <div class="quote" id="quote2">"Don't watch the clock; do what it does. Keep going."</div>
+    <div class="quote-container">
+      <div class="quote" id="quote1" onclick="copyToClipboard(1)">"Success is not final, failure is not fatal: It is the courage to continue that counts."</div>
+      <div class="quote" id="quote2" onclick="copyToClipboard(2)">"Don't watch the clock; do what it does. Keep going."</div>
+    </div>
   </div><a href="https://wa.me/966534563301" target="_blank" class="whatsapp-btn">✉</a>
 
   <script>
     let sidebar = document.getElementById('sidebar');
     let overlay = document.getElementById('overlay');
     let quotes = [
-      document.getElementById('quote1'),
-      document.getElementById('quote2')
+      "Success is not final, failure is not fatal: It is the courage to continue that counts.",
+      "Don't watch the clock; do what it does. Keep going.",
+      "Love is the only reality, and it is not a mere sentiment. It is the ultimate truth that lies at the heart of creation.",
+      "In love, the smallest of things are the most important — the way someone looks at you, the way they smile at you, and the way they make you feel.",
+      "The only way to do great work is to love what you do."
     ];
     let quoteIndex = 0;
 
@@ -143,10 +170,21 @@
       alert("The only way to truly know each other is through the art of conversation. A flow of words that reveals desires, dreams, and secrets.");
     }
 
-    setInterval(() => {
-      quotes[quoteIndex].classList.remove('active');
+    function copyToClipboard(quoteNum) {
+      let quoteText = document.getElementById(`quote${quoteNum}`).innerText;
+      navigator.clipboard.writeText(quoteText).then(() => {
+        alert('Quote copied to clipboard!');
+      });
+    }
+
+    function changeQuote() {
       quoteIndex = (quoteIndex + 1) % quotes.length;
-      quotes[quoteIndex].classList.add('active');
-    }, 6000);
+      let newQuote1 = quotes[quoteIndex];
+      let newQuote2 = quotes[(quoteIndex + 1) % quotes.length];
+      document.getElementById('quote1').innerText = newQuote1;
+      document.getElementById('quote2').innerText = newQuote2;
+    }
+
+    setInterval(changeQuote, 6000);
   </script></body>
 </html>
