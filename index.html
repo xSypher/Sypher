@@ -1,0 +1,142 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sypher</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #121212;
+      color: #fff;
+    }
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 250px;
+      height: 100%;
+      background-color: #1f1f1f;
+      padding: 1rem;
+      box-shadow: 2px 0 5px rgba(0,0,0,0.5);
+      transform: translateX(-100%);
+      transition: transform 0.3s ease;
+    }
+    .sidebar.active {
+      transform: translateX(0);
+    }
+    .menu-toggle {
+      position: fixed;
+      top: 1rem;
+      left: 1rem;
+      font-size: 2rem;
+      cursor: pointer;
+    }
+    main {
+      margin-left: 0;
+      padding: 2rem;
+      transition: margin-left 0.3s ease;
+    }
+    .sidebar.active ~ main {
+      margin-left: 250px;
+    }
+    .chat-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    .chat-box {
+      display: none;
+      position: fixed;
+      bottom: 90px;
+      right: 20px;
+      width: 300px;
+      background: #1e1e1e;
+      border: 1px solid #333;
+      padding: 1rem;
+      border-radius: 10px;
+    }
+    .chat-box textarea {
+      width: 100%;
+      height: 60px;
+      background: #2c2c2c;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 0.5rem;
+    }
+    .chat-box button {
+      margin-top: 0.5rem;
+      width: 100%;
+      padding: 0.5rem;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="menu-toggle" onclick="toggleSidebar()">&#9776;</div>
+  <div class="sidebar" id="sidebar">
+    <h2>Menu</h2>
+    <ul>
+      <li><a href="#" style="color: white;">Home</a></li>
+      <li><a href="#" style="color: white;">About</a></li>
+      <li><a href="#" style="color: white;">Projects</a></li>
+    </ul>
+  </div>
+  <main>
+    <h1>Welcome to Sypher</h1>
+    <p>This is your AI-powered corner of the web.</p>
+  </main><button class="chat-button" onclick="toggleChat()">+</button>
+
+  <div class="chat-box" id="chatBox">
+    <textarea id="userInput" placeholder="Talk to AI..."></textarea>
+    <button onclick="sendMessage()">Send</button>
+    <div id="chatResponse" style="margin-top:10px;"></div>
+  </div>  <script>
+    function toggleSidebar() {
+      document.getElementById('sidebar').classList.toggle('active');
+    }
+
+    function toggleChat() {
+      const box = document.getElementById('chatBox');
+      box.style.display = box.style.display === 'block' ? 'none' : 'block';
+    }
+
+    async function sendMessage() {
+      const input = document.getElementById("userInput").value;
+      const responseBox = document.getElementById("chatResponse");
+      responseBox.innerText = "Thinking...";
+
+      try {
+        const response = await fetch("https://api.openai.com/v1/chat/completions", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": "Bearer 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"
+          },
+          body: JSON.stringify({
+            model: "gpt-3.5-turbo",
+            messages: [{ role: "user", content: input }]
+          })
+        });
+
+        const data = await response.json();
+        responseBox.innerText = data.choices[0].message.content;
+      } catch (error) {
+        responseBox.innerText = "Error: " + error.message;
+      }
+    }
+  </script></body>
+</html>
