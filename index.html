@@ -42,10 +42,10 @@
       color: #fff;
     }
     .menu-icon div {
-      width: 30px;
-      height: 3px;
+      width: 20px;
+      height: 2px;
       background-color: #fff;
-      margin: 6px auto;
+      margin: 4px auto;
     }
     .sidebar {
       position: fixed;
@@ -139,7 +139,7 @@
       transform: scale(1.05);
     }
     .quote-left {
-      background-color: #444;
+      background-color: #25d366;
       border-radius: 15px 15px 0 15px;
     }
     .quote-right {
@@ -219,11 +219,9 @@
     }
 
     function copyToClipboard(quoteNum) {
-      let quoteText = document.getElementById(`quote${quoteNum}`).innerText;
-      navigator.clipboard.writeText(quoteText).then(() => {
-        alert('Quote copied to clipboard!');
-      });
-    }
+  let quoteText = document.getElementById(`quote${quoteNum}`).innerText;
+  navigator.clipboard.writeText(quoteText);
+}
 
     function changeQuote() {
       quoteIndex = (quoteIndex + 1) % quotes.length;
