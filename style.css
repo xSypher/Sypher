@@ -13,18 +13,43 @@ header { height: 60px; display: flex; align-items: center; justify-content: spac
 
 .menu-icon div { width: 20px; height: 2px; background-color: #fff; }
 
-.sidebar { position: fixed; top: 0; left: -250px; height: 100%; width: 250px; background-color: #111; padding: 20px; transition: 0.3s ease; z-index: 1000; }
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  height: 100%;
+  width: 250px;
+  background-color: #111;
+  padding: 20px;
+  transition: left 0.3s ease;
+  z-index: 1000;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+}
 
-.sidebar.active { left: 0; }
+.sidebar.active {
+  left: 0;
+}
 
-.sidebar a { display: block; margin: 20px 0; color: #fff; text-decoration: none; font-size: 18px; transition: 0.2s; }
+.sidebar a {
+  display: block;
+  margin: 20px 0;
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  transition: 0.2s;
+}
 
-.sidebar a:hover { color: #0f0; }
+.sidebar a:hover {
+  color: #0f0;
+}
 
-.overlay { position: fixed; top: 0; left: 0; height: 100%; width: 100%; background: rgba(0, 0, 0, 0.6); display: none; z-index: 999; }
-
-.overlay.active { display: block; }
-
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
 .whatsapp-btn { position: fixed; bottom: 20px; right: 20px; background-color: #25D366; color: white; padding: 16px; border-radius: 50%; font-size: 24px; cursor: pointer; z-index: 10; display: flex; align-items: center; justify-content: center; }
 
 .whatsapp-btn i { font-size: 24px; color: #fff; }
