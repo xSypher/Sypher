@@ -1,10 +1,16 @@
 import { getRandomMotivational } from './motivational.js';
 import { getRandomLove } from './love.js';
 
+document.addEventListener('DOMContentLoaded', () => {
+    // Initialize quotes on load
+    document.getElementById('motivational-quote').textContent = getRandomMotivational();
+    document.getElementById('love-quote').textContent = getRandomLove();
+});
+
 // Sidebar toggle functionality
 document.getElementById('hamburger').addEventListener('click', () => {
     const sidebar = document.getElementById('sidebar');
-    sidebar.classList.toggle('open');
+    sidebar.classList.add('open');
 });
 
 // Close sidebar when clicking outside
@@ -25,6 +31,15 @@ document.querySelectorAll('.close-menu').forEach(link => {
         e.preventDefault();
         const sidebar = document.getElementById('sidebar');
         sidebar.classList.remove('open');
+    });
+});
+
+// Submenu toggle functionality
+document.querySelectorAll('.submenu-trigger').forEach(trigger => {
+    trigger.addEventListener('click', (e) => {
+        e.preventDefault();
+        const submenu = trigger.nextElementSibling;
+        submenu.classList.toggle('active');
     });
 });
 
