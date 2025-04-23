@@ -1,4 +1,4 @@
-let quotes = [
+const quotes = [
   "The way you look at me feels like I’m already undressed in your thoughts, as if your eyes are tracing the outline of everything I never dared to say out loud.",
   "Discipline is the real seduction — not everyone can master the art of showing up when no one's watching and still giving it everything.",
   "Your presence doesn’t just light up a room — it shifts the entire atmosphere, like the calm before a storm that promises something unforgettable.",
