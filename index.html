@@ -4,158 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sypher</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      background-color: #121212;
-      color: #fff;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      height: 100vh;
-      overflow-x: hidden;
-    }
-    header {
-      height: 60px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 20px;
-      position: fixed;
-      width: 100%;
-      top: 0;
-      background-color: #121212;
-      z-index: 100;
-    }
-    .sypher-title {
-      font-size: 30px;
-      font-weight: bold;
-      color: #fff;
-      text-align: center;
-      flex: 1;
-    }
-    .menu-icon {
-      cursor: pointer;
-      font-size: 24px;
-      color: #fff;
-    }
-    .menu-icon div {
-      width: 20px;
-      height: 2px;
-      background-color: #fff;
-      margin: 4px auto;
-    }
-    .sidebar {
-      position: fixed;
-      top: 0;
-      left: -250px;
-      height: 100%;
-      width: 250px;
-      background-color: #111;
-      padding: 20px;
-      transition: 0.3s ease;
-      z-index: 1000;
-    }
-    .sidebar.active {
-      left: 0;
-    }
-    .close-sidebar {
-      font-size: 20px;
-      cursor: pointer;
-      text-align: right;
-      color: #fff;
-    }
-    .sidebar a {
-      display: block;
-      margin: 20px 0;
-      color: #fff;
-      text-decoration: none;
-      font-size: 18px;
-      transition: 0.2s;
-    }
-    .sidebar a:hover {
-      color: #0f0;
-    }
-    .overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
-      background: rgba(0, 0, 0, 0.6);
-      display: none;
-      z-index: 999;
-    }
-    .overlay.active {
-      display: block;
-    }
-    .whatsapp-btn {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: #25d366;
-      color: white;
-      border-radius: 50%;
-      width: 60px;
-      height: 60px;
-      font-size: 30px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-decoration: none;
-      z-index: 1000;
-    }
-    .main-content {
-      padding: 100px 20px;
-      text-align: center;
-      margin-top: 60px;
-    }
-    .quote-container {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-top: 80px;
-      position: absolute;
-      top: 80px;
-      left: 20px;
-      width: 70%;
-    }
-    .quote {
-      max-width: 100%;
-      margin: 5px 0;
-      padding: 10px;
-      background-color: #333;
-      border-radius: 20px;
-      cursor: pointer;
-      transition: all 0.3s;
-      text-align: left;
-      font-size: 14px;
-      word-wrap: break-word;
-    }
-    .quote:hover {
-      background-color: #444;
-      transform: scale(1.05);
-    }
-    .quote-left {
-      background-color: #25d366;
-      border-radius: 15px 15px 0 15px;
-    }
-    .quote-right {
-      background-color: #25d366;
-      color: white;
-      border-radius: 15px 15px 15px 0;
-    }
-    .hamburger {
-      display: block;
-      width: 30px;
-      height: 3px;
-      background-color: #fff;
-      margin: 6px auto;
-      cursor: pointer;
-    }
-  </style>
+  
+  https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css
 </head>
 <body>
   <header>
@@ -187,7 +37,9 @@
     </div>
   </div>
 
-  <a href="https://wa.me/966534563301" target="_blank" class="whatsapp-btn">&#x2709;</a>
+  <a href="https://wa.me/966534563301" target="_blank" class="whatsapp-btn">
+  <i class="fab fa-whatsapp"></i>
+</a>
 
   <script src="quotes.js"></script>
   
