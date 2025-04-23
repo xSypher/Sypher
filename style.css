@@ -49,6 +49,13 @@ header { height: 60px; display: flex; align-items: center; justify-content: spac
   left: 0;
   height: 100%;
   width: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: none;
+  z-index: 999;
+}
+
+.overlay.active {
+  display: block;
 }
 .whatsapp-btn { position: fixed; bottom: 20px; right: 20px; background-color: #25D366; color: white; padding: 16px; border-radius: 50%; font-size: 24px; cursor: pointer; z-index: 10; display: flex; align-items: center; justify-content: center; }
 
