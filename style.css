@@ -1,163 +1,39 @@
-<style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      background-color: #121212;
-      color: #fff;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      height: 100vh;
-      overflow-x: hidden;
-    }
-    header {
-      height: 60px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 20px;
-      position: fixed;
-      width: 100%;
-      top: 0;
-      background-color: #121212;
-      z-index: 100;
-    }
-    .sypher-title {
-      font-size: 30px;
-      font-weight: bold;
-      color: #fff;
-      text-align: center;
-      flex: 1;
-    }
-    .menu-icon {
-      cursor: pointer;
-      font-size: 24px;
-      color: #fff;
-    }
-    .menu-icon div {
-      width: 20px;
-      height: 2px;
-      background-color: #fff;
-      margin: 4px auto;
-    }
-    /* Sidebar initial position (off-screen) */
-.sidebar {
-  position: fixed;
-  top: 0;
-  left: -250px; /* Sidebar is off-screen initially */
-  height: 100%;
-  width: 250px;
-  background-color: #111;
-  padding: 20px;
-  transition: 0.3s ease;
-  z-index: 1000;
-}
+/* style.css */
 
-/* Sidebar active state (sliding in) */
-.sidebar.active {
-  left: 0; /* Sidebar slides in */
-}
-    .close-sidebar {
-      font-size: 20px;
-      cursor: pointer;
-      text-align: right;
-      color: #fff;
-    }
-    .sidebar a {
-      display: block;
-      margin: 20px 0;
-      color: #fff;
-      text-decoration: none;
-      font-size: 18px;
-      transition: 0.2s;
-    }
-    .sidebar a:hover {
-      color: #0f0;
-    }
-    .overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
-      background: rgba(0, 0, 0, 0.6);
-      display: none;
-      z-index: 999;
-    }
-    .overlay.active {
-      display: block;
-    }
-    .whatsapp-btn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #25D366;
-  color: white;
-  padding: 16px;
-  border-radius: 50%;
-  font-size: 24px;
-  cursor: pointer;
-  z-index: 10;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+{ margin: 0; padding: 0; box-sizing: border-box; }
 
-.whatsapp-btn i {
-  font-size: 32px;
-  color: #fff;
-}
 
-.whatsapp-btn i:hover {
-  color: #e0f7e9;
-}
-    .main-content {
-      padding: 100px 20px;
-      text-align: center;
-      margin-top: 60px;
-    }
-    .quote-container {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-top: 80px;
-      position: absolute;
-      top: 80px;
-      left: 20px;
-      width: 70%;
-    }
-    .quote {
-      max-width: 100%;
-      margin: 5px 0;
-      padding: 10px;
-      background-color: #333;
-      border-radius: 20px;
-      cursor: pointer;
-      transition: all 0.3s;
-      text-align: left;
-      font-size: 14px;
-      word-wrap: break-word;
-    }
-    .quote:hover {
-      background-color: #444;
-      transform: scale(1.05);
-    }
-    .quote-left {
-      background-color: #25d366;
-      border-radius: 15px 15px 0 15px;
-    }
-    .quote-right {
-      background-color: #25d366;
-      color: white;
-      border-radius: 15px 15px 15px 0;
-    }
-    .hamburger {
-      display: block;
-      width: 30px;
-      height: 3px;
-      background-color: #fff;
-      margin: 6px auto;
-      cursor: pointer;
-    }
-  </style>
+body { background-color: #121212; color: #fff; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; height: 100vh; overflow-x: hidden; }
+
+header { height: 60px; display: flex; align-items: center; justify-content: space-between; padding: 0 20px; position: fixed; width: 100%; top: 0; background-color: #121212; z-index: 100; }
+
+.sypher-title { font-size: 30px; font-weight: bold; color: #fff; text-align: center; flex: 1; }
+
+.menu-icon { cursor: pointer; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 4px; width: 30px; }
+
+.menu-icon div { width: 20px; height: 2px; background-color: #fff; }
+
+.sidebar { position: fixed; top: 0; left: -250px; height: 100%; width: 250px; background-color: #111; padding: 20px; transition: 0.3s ease; z-index: 1000; }
+
+.sidebar.active { left: 0; }
+
+.sidebar a { display: block; margin: 20px 0; color: #fff; text-decoration: none; font-size: 18px; transition: 0.2s; }
+
+.sidebar a:hover { color: #0f0; }
+
+.overlay { position: fixed; top: 0; left: 0; height: 100%; width: 100%; background: rgba(0, 0, 0, 0.6); display: none; z-index: 999; }
+
+.overlay.active { display: block; }
+
+.whatsapp-btn { position: fixed; bottom: 20px; right: 20px; background-color: #25D366; color: white; padding: 16px; border-radius: 50%; font-size: 24px; cursor: pointer; z-index: 10; display: flex; align-items: center; justify-content: center; }
+
+.whatsapp-btn i { font-size: 24px; color: #fff; }
+
+.main-content { padding: 100px 20px; text-align: center; margin-top: 60px; }
+
+.quote-container { display: flex; flex-direction: column; gap: 10px; margin-top: 80px; position: absolute; top: 80px; left: 20px; width: 70%; }
+
+.quote { max-width: 100%; margin: 5px 0; padding: 10px; background-color: #25d366; color: white; border-radius: 15px 15px 0 15px; cursor: pointer; transition: all 0.3s; text-align: left; font-size: 14px; word-wrap: break-word; }
+
+.quote:hover { background-color: #28e16f; transform: scale(1.05); }
+
