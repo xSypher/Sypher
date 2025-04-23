@@ -41,20 +41,23 @@
       background-color: #fff;
       margin: 4px auto;
     }
-    .sidebar {
-      position: fixed;
-      top: 0;
-      left: -250px;
-      height: 100%;
-      width: 250px;
-      background-color: #111;
-      padding: 20px;
-      transition: 0.3s ease;
-      z-index: 1000;
-    }
-    .sidebar.active {
-      left: 0;
-    }
+    /* Sidebar initial position (off-screen) */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -250px; /* Sidebar is off-screen initially */
+  height: 100%;
+  width: 250px;
+  background-color: #111;
+  padding: 20px;
+  transition: 0.3s ease;
+  z-index: 1000;
+}
+
+/* Sidebar active state (sliding in) */
+.sidebar.active {
+  left: 0; /* Sidebar slides in */
+}
     .close-sidebar {
       font-size: 20px;
       cursor: pointer;
