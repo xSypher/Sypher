@@ -11,7 +11,7 @@ function getRandomLove() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  const loveBox = document.getElementById("love-code");
+  const loveBox = document.getElementById("love-quote");
   loveBox.textContent = getRandomLove();
   loveBox.addEventListener("click", () => {
     loveBox.textContent = getRandomLove();
