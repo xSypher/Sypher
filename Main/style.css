@@ -31,3 +31,54 @@ header {
   font-weight: bold;
   color: #ffffff;
 }
+
+
+/* Main container holding the quotes */
+.quote-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Align items to the left (like WhatsApp incoming messages) */
+  gap: 10px; /* Space between the messages */
+  margin: 20px;
+}
+
+/* Quote boxes */
+.quote-box {
+  max-width: 400px; /* Set a maximum width for the quote box */
+  padding: 15px 20px;
+  border-radius: 10px;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.4;
+  transition: all 0.3s ease; /* Smooth transition on click */
+  cursor: pointer;
+}
+
+/* Motivational Quote Box */
+#motivational-quote {
+  background-color: #00BFFF; /* Light blue background for motivational quotes */
+  color: white;
+  margin-left: 20px; /* Give some space from the left side */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+}
+
+/* Love Quote Box */
+#love-quote {
+  background-color: #FF69B4; /* Hot pink background for love quotes */
+  color: white;
+  margin-left: 20px; /* Give some space from the left side */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+}
+
+/* Hover effect for quote boxes */
+.quote-box:hover {
+  transform: scale(1.05); /* Slightly enlarge the box when hovered */
+}
+
+/* Mobile responsiveness: Adjust the quote size for smaller screens */
+@media (max-width: 600px) {
+  .quote-box {
+    font-size: 14px;
+    max-width: 90%; /* Ensure it doesn't overflow */
+  }
+}
