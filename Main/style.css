@@ -80,30 +80,39 @@ header {
 }
 
 
-/* Animated triangle icon */
+/* Pulse Animation */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Apply pulse to the triangle icon */
 .triangle-icon {
-  width: 0;
-  height: 0;
+  width: 30px;
+  height: 30px;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 20px solid white;
+  animation: pulse 1.5s ease-in-out infinite; /* Pulse animation */
+}
+
+/* Optional: Style the button (hamburger) */
+.hamburger {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
   position: fixed;
   top: 20px;
   left: 20px;
   z-index: 1100;
-  cursor: pointer;
-
-  /* Triangle pointing left */
-  border-top: 12px solid transparent;
-  border-bottom: 12px solid transparent;
-  border-right: 18px solid white;
-
-  animation: trianglePulse 2s infinite ease-in-out;
-}
-
-/* Triangle animation */
-@keyframes trianglePulse {
-  0%, 100% {
-    transform: scale(1) rotate(0deg);
-  }
-  50% {
-    transform: scale(1.2) rotate(-10deg);
-  }
 }
