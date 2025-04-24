@@ -37,21 +37,23 @@ header {
 .quote-container {
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* Align items to the left (like WhatsApp incoming messages) */
-  gap: 10px; /* Space between the messages */
-  margin: 20px;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 20px;
+  max-width: 100%;
 }
 
-/* Quote boxes */
 .quote-box {
-  max-width: 400px; /* Set a maximum width for the quote box */
-  padding: 15px 20px;
-  border-radius: 10px;
-  font-family: Arial, sans-serif;
-  font-size: 16px;
-  line-height: 1.4;
-  transition: all 0.3s ease; /* Smooth transition on click */
+  background-color: #2a2a2a;
+  color: #fff;
+  padding: 12px 16px;
+  border-radius: 16px 16px 16px 0;
+  max-width: 75%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   cursor: pointer;
+  transition: background-color 0.3s ease;
+  align-self: flex-start; /* Forces box to stick to left */
+  word-wrap: break-word;
 }
 
 /* Motivational Quote Box */
