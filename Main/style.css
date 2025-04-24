@@ -79,61 +79,31 @@ header {
   }
 }
 
-/* Hamburger container */
-.hamburger {
-  width: 30px;
-  height: 20px;
+
+/* Animated triangle icon */
+.triangle-icon {
+  width: 0;
+  height: 0;
   position: fixed;
   top: 20px;
   left: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  cursor: pointer;
   z-index: 1100;
+  cursor: pointer;
+
+  /* Triangle pointing left */
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+  border-right: 18px solid white;
+
+  animation: trianglePulse 2s infinite ease-in-out;
 }
 
-/* Hamburger bars */
-.hamburger span {
-  display: block;
-  height: 3px;
-  background: white;
-  border-radius: 2px;
-  transition: 0.4s;
-}
-
-/* Add animation to bars */
-.hamburger.animated span:nth-child(1),
-.hamburger.animated span:nth-child(3) {
-  animation: rotateLines 4s infinite;
-}
-
-.hamburger.animated span:nth-child(2) {
-  animation: fadeMiddle 4s infinite;
-}
-
-/* Keyframe for rotating outer lines */
-@keyframes rotateLines {
-  0%, 50%, 100% {
-    transform: rotate(0deg) translate(0, 0);
-    width: 30px;
+/* Triangle animation */
+@keyframes trianglePulse {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
   }
-  25% {
-    transform: rotate(45deg) translate(5px, 5px);
-    width: 20px;
-  }
-  75% {
-    transform: rotate(-45deg) translate(5px, -5px);
-    width: 20px;
-  }
-}
-
-/* Keyframe to fade middle line */
-@keyframes fadeMiddle {
-  0%, 50%, 100% {
-    opacity: 1;
-  }
-  25%, 75% {
-    opacity: 0;
+  50% {
+    transform: scale(1.2) rotate(-10deg);
   }
 }
