@@ -11,7 +11,7 @@ function getRandomMotivational() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  const motivationalBox = document.getElementById("motivational-code");
+  const motivationalBox = document.getElementById("motivational-quote");
   motivationalBox.textContent = getRandomMotivational();
   motivationalBox.addEventListener("click", () => {
     motivationalBox.textContent = getRandomMotivational();
