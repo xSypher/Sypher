@@ -5,8 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sypher</title>
   <link rel="stylesheet" href="Main/style.css" />
+  <link rel="stylesheet" href="Sidebar/sidebar.css">
 </head>
 <body>
+
+  <!-- Sidebar inclusion -->
+<div id="sidebar-container"></div>
+
+  
   <header>
     <h1 class="title">Sypher</h1>
   </header>
@@ -22,5 +28,13 @@
    <!-- Place your script tags here -->
   <script src="Quotes/motivational.js"></script>
   <script src="Quotes/love.js"></script>
+
+  <script>
+  fetch("Sidebar/sidebar.html")
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById("sidebar-container").innerHTML = data;
+    });
+  </script>
 </body>
 </html>
